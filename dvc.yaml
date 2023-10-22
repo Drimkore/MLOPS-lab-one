@@ -39,4 +39,13 @@ stages:
     - train.max_features
     - train.min_samples_leaf
     outs:
-    - model.pkl
+    - models/model.pkl
+  evaluate:
+    cmd: python scripts/ml_scripts/eval.py
+    deps:
+    - data/stage4/test.csv
+    - models/model.pkl
+    - scripts/ml_scripts/eval.py
+    metrics:
+    - metrics.csv:
+        cache: false
