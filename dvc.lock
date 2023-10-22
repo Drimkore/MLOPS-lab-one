@@ -1,0 +1,53 @@
+schema: '2.0'
+stages:
+  data_fix:
+    cmd: python scripts/data_scripts/modify.py
+    deps:
+    - path: data/raw/googleplaystore.csv
+      hash: md5
+      md5: eba349a50f9d2214c21a88223208980a
+      size: 1360155
+    - path: scripts/data_scripts/modify.py
+      hash: md5
+      md5: 89aea68afdd3590928a7d831b9049c31
+      size: 1815
+    outs:
+    - path: data/stage1
+      hash: md5
+      md5: 1e681bdf47e476c7b6413bc64dfcd5bd.dir
+      size: 2695185
+      nfiles: 1
+  data_stand:
+    cmd: python scripts/data_scripts/stand.py
+    deps:
+    - path: data/stage1/googleplaystore.csv
+      hash: md5
+      md5: 15977e4313f4714153a80b1491838fb3
+      size: 2695185
+    - path: scripts/data_scripts/stand.py
+      hash: md5
+      md5: edd8f93d9c75d749b0272fa9e374e6aa
+      size: 629
+    outs:
+    - path: data/stage2
+      hash: md5
+      md5: c95f1a21c6081c2156801b89dfd98047.dir
+      size: 2920395
+      nfiles: 1
+  data_round:
+    cmd: python scripts/data_scripts/round.py
+    deps:
+    - path: data/stage2/googleplaystore.csv
+      hash: md5
+      md5: 9ee170abc11cd61bc9e27a62330f4680
+      size: 2920395
+    - path: scripts/data_scripts/round.py
+      hash: md5
+      md5: e633674995f86c616eaf6e0dc9456a7b
+      size: 380
+    outs:
+    - path: data/stage3
+      hash: md5
+      md5: 852ed3f32863886884259f4459cb8ade.dir
+      size: 2918786
+      nfiles: 1

@@ -1,0 +1,22 @@
+stages:
+  data_fix:
+    cmd: python scripts/data_scripts/modify.py
+    deps:
+    - data/raw/googleplaystore.csv
+    - scripts/data_scripts/modify.py
+    outs:
+    - data/stage1
+  data_stand:
+    cmd: python scripts/data_scripts/stand.py
+    deps:
+    - data/stage1/googleplaystore.csv
+    - scripts/data_scripts/stand.py
+    outs:
+    - data/stage2
+  data_round:
+    cmd: python scripts/data_scripts/round.py
+    deps:
+    - data/stage2/googleplaystore.csv
+    - scripts/data_scripts/round.py
+    outs:
+    - data/stage3
