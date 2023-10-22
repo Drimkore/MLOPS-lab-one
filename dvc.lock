@@ -51,3 +51,23 @@ stages:
       md5: 852ed3f32863886884259f4459cb8ade.dir
       size: 2918786
       nfiles: 1
+  split:
+    cmd: python scripts/ml_scripts/train_test_split.py
+    deps:
+    - path: data/stage3/googleplaystore.csv
+      hash: md5
+      md5: ee3ef2f963efa7b3760c8c8a2bd94ea2
+      size: 2918786
+    - path: scripts/ml_scripts/train_test_split.py
+      hash: md5
+      md5: 2c1139195c9b3de64f60c6b216c80de8
+      size: 892
+    params:
+      params.yaml:
+        split.split_ratio: 0.3
+    outs:
+    - path: data/stage4
+      hash: md5
+      md5: 53e791e7df826c4816ab7cc3547bc7c9.dir
+      size: 2918085
+      nfiles: 2

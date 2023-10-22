@@ -20,3 +20,12 @@ stages:
     - scripts/data_scripts/round.py
     outs:
     - data/stage3
+  split:
+    cmd: python scripts/ml_scripts/train_test_split.py
+    deps:
+    - data/stage3/googleplaystore.csv
+    - scripts/ml_scripts/train_test_split.py
+    params:
+    - split.split_ratio
+    outs:
+    - data/stage4
