@@ -85,13 +85,13 @@ stages:
     params:
       params.yaml:
         train.max_depth: 5
-        train.max_features: 14
-        train.min_samples_leaf: 11
+        train.max_features: 15
+        train.min_samples_leaf: 1
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: b966616ead586c9cc2321ae5c766e629
-      size: 7981
+      md5: f6d215b4c5aeb7364327ec59dfa0fbc7
+      size: 8429
   evaluate:
     cmd: python scripts/ml_scripts/eval.py
     deps:
@@ -101,14 +101,14 @@ stages:
       size: 874469
     - path: models/model.pkl
       hash: md5
-      md5: b966616ead586c9cc2321ae5c766e629
-      size: 7981
+      md5: f6d215b4c5aeb7364327ec59dfa0fbc7
+      size: 8429
     - path: scripts/ml_scripts/eval.py
       hash: md5
-      md5: ecc789b5cd1282c2327a7dd00a533b0f
-      size: 967
+      md5: a377353a40bc0da93b21d45602f17c4b
+      size: 942
     outs:
     - path: metrics/evaluation.json
       hash: md5
-      md5: 6a56c7ba71c43a1380365355a52c2426
-      size: 32
+      md5: f35be06ff2b598c7616956146422bb48
+      size: 29

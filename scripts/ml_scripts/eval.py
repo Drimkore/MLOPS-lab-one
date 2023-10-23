@@ -33,6 +33,5 @@ with open(input_file_model, "rb") as ff:
     metr = scr
 
 with open(output_file, "w") as f:
-    l = '{' + f'"score":{metr}' + "}"
-    json.dump(l, f)
+    json.dump({"score":metr}, f)
 

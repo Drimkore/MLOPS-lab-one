@@ -1,5 +1,6 @@
 [core]
     remote = ssh-storage
+    autostage = true
 ['remote "ssh-storage"']
     url = ssh://datasrv@192.168.56.102/opt/datasets
     user = datasrv

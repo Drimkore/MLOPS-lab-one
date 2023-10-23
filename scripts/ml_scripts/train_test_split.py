@@ -19,8 +19,8 @@ x = df_gps.drop(labels=["Rating"], axis = 1)
 y = df_gps['Rating']
 params = yaml.safe_load(open("params.yaml"))["split"]
 p_split_ratio = params["split_ratio"]
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = p_split_ratio, random_state = 42)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=p_split_ratio, random_state=42)
 
-pd.concat([x_train, y_train], axis=1).to_csv(output_file_train, header=None, index=None)
-pd.concat([x_test, y_test], axis=1).to_csv(output_file_test, header=None, index=None)
+pd.concat([x_train, y_train], axis=1).to_csv(output_file_train, index=None)
+pd.concat([x_test, y_test], axis=1).to_csv(output_file_test, index=None)
 
