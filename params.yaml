@@ -3,5 +3,5 @@ split:
 
 train:
     max_depth: 5
-    max_features: 15
+    max_features: 19
     min_samples_leaf: 1
